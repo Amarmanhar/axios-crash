@@ -46,6 +46,36 @@
             console.log(err)
         })
 
+            window.addEventListener("DOMContentLoaded" , () =>{
+            axios.get("https://crudcrud.com/api/a08cf0997c4745f2bd1b56fe61e68bc8/data")
+            .then((response) =>{
+                
+                for( var  i = 0; i<response.data.length; i++){
+                    showOnscreen(response.data[i]);
+                }
+            })
+            .catch((error) =>{
+                console.log(error)
+            })
+        })
+              function showOnscreen(user){
+                 const parentEle = document.getElementById('listofitems');
+             // parentEle.innerHTML = parentEle.innerHTML + `<li> ${obj.fname} - ${obj.lname} - ${obj.email} - ${obj.password}`;
+                const childele = document.createElement('li');
+                childele.textContent = user.username + '-' + user.email ;
+
+                const deletbtn = document.createElement('input');
+                deletbtn.type = "button"
+                deletbtn.value =  'Delete'
+                deletbtn.onclick =() =>{
+                localStorage.removeItem(user.email)
+                parentEle.removeChild(childele)
+                }
+                childele.appendChild(deletbtn);
+                parentEle.appendChild(childele);
+   
+}
+
             // Save user details to local storage
             // localStorage.setItem("user", JSON.stringify(user));
 
