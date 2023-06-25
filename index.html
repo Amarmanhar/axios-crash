@@ -58,6 +58,14 @@
                 console.log(error)
             })
         })
+// for delete user 
+            axios.delete("https://crudcrud.com/api/a08cf0997c4745f2bd1b56fe61e68bc8/data/6497e26bc632b703e8306cdc")
+        .then((res) => {
+            console.log(res)
+        })
+        .catch((err) => {
+            console.log(err)
+        })
               function showOnscreen(user){
                  const parentEle = document.getElementById('listofitems');
              // parentEle.innerHTML = parentEle.innerHTML + `<li> ${obj.fname} - ${obj.lname} - ${obj.email} - ${obj.password}`;
